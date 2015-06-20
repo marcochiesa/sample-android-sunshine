@@ -161,7 +161,7 @@ public class DetailActivityFragment extends Fragment implements LoaderManager.Lo
                     null
             );
         }
-        
+
         return null;
     }
 
