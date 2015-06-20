@@ -19,6 +19,9 @@ public class ForecastAdapter extends CursorAdapter {
     private static final int VIEW_TYPE_TODAY = 0;
     private static final int VIEW_TYPE_FUTURE_DAY = 1;
 
+    // Flag to determine if we want to use a separate view for "today".
+    private boolean mUseTodayLayout = true;
+
     // holds references to child views for forecast list view items
     public static class ViewHolder {
         public final ImageView iconView;
@@ -112,9 +115,13 @@ public class ForecastAdapter extends CursorAdapter {
         viewHolder.lowTempView.setText(Utility.formatTemperature(context, low, isMetric));
     }
 
+    public void setUseTodayLayout(boolean useTodayLayout) {
+        mUseTodayLayout = useTodayLayout;
+    }
+
     @Override
     public int getItemViewType(int position) {
-        return position == 0 ? VIEW_TYPE_TODAY : VIEW_TYPE_FUTURE_DAY;
+        return (position == 0 && mUseTodayLayout) ? VIEW_TYPE_TODAY : VIEW_TYPE_FUTURE_DAY;
     }
 
     @Override
