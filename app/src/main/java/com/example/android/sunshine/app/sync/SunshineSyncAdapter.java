@@ -238,7 +238,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                         return;
                 }
             }
-            
+
             JSONArray weatherArray = forecastJson.getJSONArray(OWM_LIST);
 
             JSONObject cityJson = forecastJson.getJSONObject(OWM_CITY);
